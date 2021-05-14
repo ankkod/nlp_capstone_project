@@ -3,3 +3,4 @@ scipy
 Flask
 pandas
 scikit_learn
+gunicorn
