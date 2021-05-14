@@ -20,7 +20,8 @@ def home():
 
 @app.route('/api',methods=['POST'])
 def api_predict():
-    message = request.form['message']
+    data = request.get_json(force=True)
+    message = data['message']
     data = [message]
     vect = vectorizer.transform(data).toarray()
     prediction = model.predict(vect)
@@ -47,4 +48,4 @@ def predict():
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    app.run(debug=True, port=5000)
