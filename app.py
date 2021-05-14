@@ -20,6 +20,7 @@ def home():
 
 @app.route('/api',methods=['POST'])
 def api_predict():
+    result = ['ham', 'spam']
     data = request.get_json(force=True)
     message = data['message']
     data = [message]
@@ -29,7 +30,7 @@ def api_predict():
     # Take the first value of prediction
     output = prediction[0]
     print(output)
-    return jsonify(int(output))
+    return jsonify(result[output])
 
 @app.route('/app',methods=['POST'])
 def predict():
