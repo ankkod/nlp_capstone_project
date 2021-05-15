@@ -3,6 +3,7 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
+from flask_cors import cross_origin
 
 # Load the model
 model = pickle.load(open('model/NB_spam_model.pkl','rb'))
@@ -11,6 +12,7 @@ vectorizer = CountVectorizer(decode_error="replace", vocabulary=pickle.load(open
 app = Flask(__name__)
 
 @app.route('/isAlive')
+@cross_origin()
 def index():
     return "true"
 
@@ -19,6 +21,7 @@ def home():
 	return render_template('home.html')
 
 @app.route('/api',methods=['POST'])
+@cross_origin()
 def api_predict():
     result = ['ham', 'spam']
     data = request.get_json(force=True)
