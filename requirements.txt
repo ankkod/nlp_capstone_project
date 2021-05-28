@@ -5,4 +5,4 @@ pandas
 scikit_learn
 gunicorn
 flask-cors
-tensorflow
+tensorflow-cpu
