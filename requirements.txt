@@ -5,3 +5,5 @@ pandas
 scikit_learn
 gunicorn
 flask-cors
+tesnorflow
+keras
