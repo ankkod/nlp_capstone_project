@@ -46,13 +46,13 @@ def api_predict():
         test_description = tokenizer.texts_to_sequences(description)
         test_seq = pad_sequences(test_description)
         print(test_seq)
-        print(model.predict(test_seq[0])[0].argmax())
+        #print(model.predict(test_seq[0])[0].argmax())
         if model == 'Bi-Directional_LSTM':
             prediction = bidir_model.predict(test_seq[0])[0].argmax()
         else:
             prediction = lstm_model.predict(test_seq[0])[0].argmax()
         actual_label = check_group(prediction)
-        print(prediction)
+        print(actual_label)
         # Take the first value of prediction
         #output = prediction[0]
         #print(output)
