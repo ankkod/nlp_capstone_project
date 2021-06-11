@@ -17,7 +17,7 @@ import fasttext
 # loading
 #with open('model/tokenizer.pl', 'rb') as handle:
 tokenizer = pickle.load(open('model/tokenizer.pl','rb'))
-bidir_model = tf.keras.models.load_model('model/bidir-lstm_model.h5')
+bidir_model = tf.keras.models.load_model('model/bidir-lstm.h5')
 lstm_model = tf.keras.models.load_model('model/lstm_model_all.h5')
 fasttext_model = fasttext.load_model("model/fasttext_model.ftz")
 groups = pd.read_csv('model/final_data.csv')
